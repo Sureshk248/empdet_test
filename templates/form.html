@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <div class="card">
+    <div class="card-header bg-success text-white">
+        Employee Details
+    </div>
+
+    <div class="row">
+  <!--LEFT SIDE: Data Entry Form -->
+      <div class="col-md-6">
+
+        <div class="card-body">
+
+         <form id='empform' method = "POST">
+
+          <div class="mb-2 row small-row">
+            <label class="col-sm-4 col-form-label">Employee ID:</label>
+            <div class="col-sm-8">
+            <input type="number" id="emp_id" name="emp_id" value="{{empd.PERNR}}" class="form-control" readonly>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  <!--right SIDE: Data Entry Form -->
+  <div class="col-md-6">
+      <div class="card-body">
+
+        <form id='empform' method = "POST">
+
+          <div class="mb-2 row small-row">
+            <label class="col-sm-4 col-form-label">Name:</label>
+            <div class="col-sm-8">
+            <input type="text" id="name" name="name" value="{{empd.NAME}}" class="form-control" readonly>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+
+ </div>
+</div>
+<script src="{{ url_for('static', filename='javas.js') }}"></script>
+
+{% endblock %}
