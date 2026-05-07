@@ -13,7 +13,7 @@ conn = Connection(
 app = Flask(__name__)
 app.secret_key = "secret123"
 
-@app.route("/")
+@app.route("/",methods=["GET","POST"])
 def home():
 
     # 1. Store SAP user once
@@ -23,15 +23,18 @@ def home():
     sap_user = session.get("sap_user")
 
     if not sap_user:
-        sap_user = '1070510'
+        sap_user = request.form.get("emp_id")
+        print(sap_user)
 
     # 2. Always call SAP
-    result = conn.call(
+    if sap_user:
+      result = conn.call(
         'Z_GET_EMPLOYEE',
         PERNR=str(sap_user)
-    )
+        )
 
     EMPD = result.get("EMPD", {})
+    print(EMPD)
 
     return render_template("form.html", empd=EMPD)
 

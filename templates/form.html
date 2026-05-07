@@ -13,16 +13,34 @@
 
         <div class="card-body">
 
-         <form id='empform' method = "POST">
+         <form id='empform' method = "POST" action="/">
 
           <div class="mb-2 row small-row">
-            <label class="col-sm-4 col-form-label">Employee ID:</label>
+            <label class="col-sm-4 col-form-label" style="font-weight:bold;">Employee ID:</label>
             <div class="col-sm-8">
-            <input type="number" id="emp_id" name="emp_id" value="{{empd.PERNR}}" class="form-control" readonly>
+            <input type="number" id="emp_id" name="emp_id" value="{{empd.PERNR if empd else ''}}" class="form-control" style="font-weight:bold;">
             </div>
           </div>
 
         </form>
+          <div class="mb-2 row small-row">
+            <label class="col-sm-4 col-form-label" style="font-weight:bold;">Designation:</label>
+            <div class="col-sm-8">
+            <input type="text" id="desig" name="desig" value="{{empd.STEXT if empd else ''}}" class="form-control" style="font-weight:bold;" readonly>
+            </div>
+          </div>
+          <div class="mb-2 row small-row">
+            <label class="col-sm-4 col-form-label" style="font-weight:bold;">Mobile:</label>
+            <div class="col-sm-8">
+            <input type="text" id="mob" name="mob" value="{{empd.MOBILE if empd else ''}}" class="form-control" style="font-weight:bold;" readonly>
+            </div>
+          </div>
+          <div class="mb-2 row small-row">
+            <label class="col-sm-4 col-form-label" style="font-weight:bold;">Address:</label>
+            <div class="col-sm-8">
+            <textarea rows="3" id="addr" name="addr" value="{{empd.ADDRESS if empd else ''}}" rows ="3" class="form-control" style="font-weight:bold; resize:none;" readonly></textarea>
+            </div>
+          </div>
 
       </div>
     </div>
@@ -30,16 +48,30 @@
   <div class="col-md-6">
       <div class="card-body">
 
-        <form id='empform' method = "POST">
-
           <div class="mb-2 row small-row">
-            <label class="col-sm-4 col-form-label">Name:</label>
+            <label class="col-sm-4 col-form-label" style="font-weight:bold;">Name:</label>
             <div class="col-sm-8">
-            <input type="text" id="name" name="name" value="{{empd.NAME}}" class="form-control" readonly>
+            <input type="text" id="name" name="name" value="{{empd.NAME if empd else ''}}" class="form-control" style="font-weight:bold;" readonly>
             </div>
           </div>
-
-        </form>
+          <div class="mb-2 row small-row">
+            <label class="col-sm-4 col-form-label" style="font-weight:bold;">Job:</label>
+            <div class="col-sm-8">
+            <input type="text" id="job" name="job" value="{{empd.JOB_TXT if empd else ''}}" class="form-control" style="font-weight:bold;" readonly>
+            </div>
+          </div>
+          <div class="mb-2 row small-row">
+            <label class="col-sm-4 col-form-label" style="font-weight:bold;">Email:</label>
+            <div class="col-sm-8">
+            <input type="text" id="email" name="email" value="{{empd.EMAIL if empd else ''}}" class="form-control" style="font-weight:bold;" readonly>
+            </div>
+          </div>
+          <div class="mb-2 row small-row">
+            <label class="col-sm-4 col-form-label" style="font-weight:bold;">Org unit:</label>
+            <div class="col-sm-8">
+            <input type="text" id="org" name="org" value="{{empd.ORG_TXT if empd else ''}}" class="form-control" style="font-weight:bold;" readonly>
+            </div>
+          </div>
 
       </div>
     </div>
